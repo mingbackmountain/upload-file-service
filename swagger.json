@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "File Upload Service",
+    "version": "1.0.0",
+    "description": "API documentation for the file upload service"
+  },
+  "paths": {
+    "/upload": {
+      "post": {
+        "summary": "Upload a file",
+        "tags": [
+          "File"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": [
+    {
+      "name": "File",
+      "description": "File operations"
+    }
+  ]
+}
